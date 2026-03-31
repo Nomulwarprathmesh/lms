@@ -1,5 +1,4 @@
 import {
-    GraduationCapIcon,
     User2Icon,
     BookOpenIcon,
     MedalIcon,
@@ -7,6 +6,8 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import StatsCard from "../components/StatsCard";
+import BrandLogo from "../../../shared/components/BrandLogo";
+import LoginForm from "../components/LoginForm";
 
 function AnimatedLogo() {
     return (
@@ -30,7 +31,6 @@ function AnimatedLogo() {
                     ease: "easeInOut",
                 }}
             >
-                <GraduationCapIcon className="h-9 w-9 text-white" />
             </motion.div>
 
             {/* Text */}
@@ -50,19 +50,16 @@ function LoginPage() {
             <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
 
                 {/* Left Section */}
-                <div className="relative flex h-full items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 p-12 overflow-hidden">
+                <div className="relative flex h-full flex-col justify-start bg-gradient-to-br from-blue-600 to-blue-800 p-12 overflow-hidden">
 
                     {/* Content Wrapper */}
                     <div className="relative z-10 max-w-lg text-white">
 
                         {/* 🔹 Logo */}
-                        <div className="flex items-center gap-4 mb-12">
-                            <div className="w-16 h-16 bg-white/20 backdrop-blur-lg rounded-2xl flex items-center justify-center">
-                                <GraduationCapIcon size={36} className="text-white" />
-                            </div>
-                            <h1 className="text-4xl font-bold">EduAdmin LMS</h1>
-                        </div>
 
+                        <div className="mb-12">
+                            <BrandLogo />
+                        </div>
                         {/* 🔹 Heading */}
                         <h2 className="text-5xl font-bold mb-6 leading-tight">
                             Welcome Back to Your Learning Hub
@@ -114,8 +111,10 @@ function LoginPage() {
                 </div>
 
                 {/* Right Section */}
-                <div className="flex items-center justify-center">
-                    <div className="w-80 h-80 bg-white rounded-2xl shadow-md"></div>
+                <div className="flex items-center justify-center bg-neutral-100 px-6 py-10 lg:px-12">
+                    <div className="w-full max-w-md">
+                        <LoginForm />
+                    </div>
                 </div>
 
             </div>
