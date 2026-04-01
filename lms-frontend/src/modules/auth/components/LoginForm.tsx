@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Lock, User, ArrowRight, Sparkles } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // ✅ added
 
 import { loginStart, loginSuccess, loginFailure } from "../store/authSlice";
 import type { AppDispatch } from "../../../store/store";
@@ -41,6 +42,8 @@ const mockUsers = [
 
 function LoginForm() {
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate(); // ✅ added
+
   const [showPassword, setShowPassword] = useState(false);
   const [authError, setAuthError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -85,6 +88,10 @@ function LoginForm() {
       );
 
       setIsLoading(false);
+
+      // ✅ redirect to admin dashboard
+      navigate("/admin/dashboard");
+
     } catch {
       const message = "Login failed";
       setAuthError(message);
@@ -100,7 +107,7 @@ function LoginForm() {
         <div className="mb-2 flex items-center justify-center gap-2">
           <h2 className="text-3xl font-bold text-gray-900">Sign In</h2>
 
-          {/* 🔥 Animated Sparkles */}
+          {/* Animated Sparkles */}
           <motion.div
             animate={{
               rotate: [0, 15, -15, 0],
@@ -122,7 +129,7 @@ function LoginForm() {
         </p>
       </div>
 
-      {/* Demo */}
+      {/* Demo Credentials */}
       <div className="mb-6 rounded-xl border border-blue-100 bg-blue-50 p-4">
         <p className="mb-2 text-xs font-semibold text-blue-900">
           Demo Credentials
@@ -206,6 +213,7 @@ function LoginForm() {
         </button>
       </form>
 
+      {/* Footer */}
       <p className="mt-6 text-center text-xs text-gray-400">
         © 2024 EduAdmin LMS
       </p>

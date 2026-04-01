@@ -1,11 +1,21 @@
-import React from 'react'
+
+// import SideBar from "../../../shared/components/Sidebar"
+// import React from 'react'
+
+// function AdminDashboard() {
+//   return (
+//     <div>
+//       <SideBar/>
+//     </div>
+//   )
+// }
+
+// export default AdminDashboard
+
+import DashboardLayout from "../../../shared/layouts/DashboardLayout"
 
 function AdminDashboard() {
-  return (
-    <div>
-      <h1>Admin Dashboard</h1>
-    </div>
-  )
+  return <DashboardLayout />
 }
 
 export default AdminDashboard
