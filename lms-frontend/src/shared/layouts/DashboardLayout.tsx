@@ -1,16 +1,16 @@
 import { useState } from "react"
 import Sidebar from "../components/Sidebar"
 import Navbar from "../components/Navbar"
-
+import StudentsStatusCard from "../../modules/admin/pages/StudentsStatusCard"
 function DashboardLayout() {
   const [activeItem, setActiveItem] = useState("Dashboard")
 
   return (
     <div className="flex">
       {/* Sidebar */}
-      <Sidebar 
-        activeItem={activeItem} 
-        setActiveItem={setActiveItem} 
+      <Sidebar
+        activeItem={activeItem}
+        setActiveItem={setActiveItem}
       />
 
       {/* Right Section */}
@@ -19,11 +19,11 @@ function DashboardLayout() {
         <Navbar activeItem={activeItem} />
 
         {/* Page Content */}
-        <div className="p-6">
-          <h1 className="text-2xl font-bold text-gray-800">
-            {activeItem}
-          </h1>
-        </div>
+        {activeItem === "Dashboard" && (
+          <div className="mt-6">
+            <StudentsStatusCard />
+          </div>
+        )}
       </div>
     </div>
   )
